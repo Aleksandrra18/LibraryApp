@@ -1,5 +1,7 @@
 package app.project.library.model;
 
+import java.util.Objects;
+
 public class Magazine extends Publication {
 
     private int month;
@@ -38,8 +40,23 @@ public class Magazine extends Publication {
     }
 
     @Override
-    public void printInfo() {
-        String info = getTitle() + "; " + getPublisher() + "; " + getYear() + "; " + this.month + "; " + this.day + "; " + this.language;
-        System.out.println(info);
+    public String toString() {
+        return super.toString() + "; " + month + "; " + day + "; " + language;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Magazine magazine = (Magazine) o;
+        return month == magazine.month &&
+                day == magazine.day &&
+                Objects.equals(language, magazine.language);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), month, day, language);
     }
 }
