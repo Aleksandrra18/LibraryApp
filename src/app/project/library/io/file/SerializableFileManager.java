@@ -3,8 +3,6 @@ package app.project.library.io.file;
 import app.project.library.exception.DataExportException;
 import app.project.library.exception.DataImportException;
 import app.project.library.model.Library;
-
-import javax.xml.crypto.Data;
 import java.io.*;
 
 class SerializableFileManager implements FileManager {

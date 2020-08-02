@@ -3,7 +3,7 @@ package app.project.library.model;
 import java.util.Objects;
 
 public class Book extends Publication {
-
+    public static final String TYPE = "Książka";
     private String author;
     private int pages;
     private String isbn;
@@ -37,6 +37,17 @@ public class Book extends Publication {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    @Override
+    public String toCSV() {
+        return TYPE + ";" +
+                getTitle() + ";" +
+                getPublisher() + ";" +
+                getYear() + ";" +
+                getAuthor() + ";" +
+                getPages() + ";" +
+                isbn;
     }
 
     @Override

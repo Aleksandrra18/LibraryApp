@@ -1,8 +1,9 @@
 package app.project.library.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public abstract class Publication {
+public abstract class Publication implements Serializable {
 
     private int year;
     private String title;
@@ -37,6 +38,8 @@ public abstract class Publication {
     void setPublisher(String publisher) {
         this.publisher = publisher;
     }
+
+    public abstract String toCSV();
 
     @Override
     public String toString() {
